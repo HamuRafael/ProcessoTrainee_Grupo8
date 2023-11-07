@@ -85,8 +85,23 @@ header {
     background:transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0); /* deixa o login apagado */
+    transition: transform, .5s ease, height .2s ease;
    
    
+}
+.wrapper.wrapper.active-popup{ /* trabalha com o botao de login em cima */
+    transform: scale(1);
+}
+.wrapper.active{
+    height: 520px;
+
 }
 .wrapper .icon-close {
     
@@ -96,6 +111,26 @@ header {
     width: 100%;
     padding: 40px;
 }
+.wrapper .form-box.login{
+     transition: transform .18s ease;
+     transform: translateX(0);
+
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+
+}
+
 .form-box h2{
     font-size: 2em;
     color: #162938;
@@ -122,7 +157,7 @@ header {
     color: #162938;
     font-weight: 500;
     pointer-events: none;
-    transition: .5s;
+    transition: .3s;
 
 }
 .input-box input{

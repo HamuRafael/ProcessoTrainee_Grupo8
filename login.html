@@ -11,7 +11,10 @@
     <header>
         <h2 class="logo">Foca.</h2>
         <nav class="navigation">
-            <a href="#">Home</a>
+            
+            <a href="#">
+                <button class="btnHome">Home</button>
+            </a>
             <a href="#">Sobre a Foca.</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
@@ -36,17 +39,48 @@
                     <a href="#">Esqueceu a Senha?</a>
 
                 </div>
-        </div>
-        <button type="submit" class="btn">Login</button>
-        <div class="login-register">
-            <p>Não tem uma Conta?<a href="#" class="register-link"> Cadastre-se</a>  
         
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                <p>Não tem uma Conta?<a href="#" class="register-link"> Cadastre-se</a>  
+        
+                </p>
+            </div>
+            </form>
+        </div>
+        
+        <div class="form-box register">
+        <h2>Registre-se no Foca.</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+                <input type="text" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+                <input type="text" required>
+                <label>Usuário</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" required>
+                <label>Senha</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Eu concordo com os termos de uso.</label>
+                
+
+            </div>
+    
+            <button type="submit" class="btn">Cadastre-se</button>
+            <div class="login-register">
+            <p>Já possui uma Conta?<a href="#" class="login-link"> Entrar</a>  
+    
             </p>
         </div>
-        
-    </div>
-
-
+        </form>
+    </div>  
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
