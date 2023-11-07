@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Login - Minha Rede Social</title>
-</head>
-<body>
-
+    </head>
+    <body>
+    <footer id="footer"><h1>
+        Todos os Direitos Reservados ©
+    </h1></footer>
     <header>
         <h2 class="logo">Foca.</h2>
+        
+        
         <nav class="navigation">
             
-            <a href="#">
-                <button class="btnHome">Home</button>
-            </a>
-            <a href="#">Sobre a Foca.</a>
+            
+            <button class="btnHome">Home</button>
+            <button class="btnSobre">Sobre a Foca.</button>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
     <div class="wrapper">
         
         <div class="form-box login">
-            <h2>Entre no Foca.</h2>
-            <form action="#">
+                <h2>Entre no Foca.</h2>
+                <form action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
                     <input type="email" required>
@@ -36,22 +39,22 @@
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Lembrar de Mim</label>
-                    <a href="#">Esqueceu a Senha?</a>
+                    <a href="#" class="miss-password">Esqueceu a Senha?</a>
 
                 </div>
         
                 <button type="submit" class="btn">Login</button>
                 <div class="login-register">
-                <p>Não tem uma Conta?<a href="#" class="register-link"> Cadastre-se</a>  
+                    <p>Não tem uma Conta?<a href="#" class="register-link"> Cadastre-se</a>  
         
-                </p>
-            </div>
+                    </p>
+                </div>
             </form>
         </div>
         
         <div class="form-box register">
-        <h2>Registre-se no Foca.</h2>
-        <form action="#">
+            <h2>Registre-se no Foca.</h2>
+            <form action="#">
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
                 <input type="text" required>
@@ -77,13 +80,48 @@
             <div class="login-register">
             <p>Já possui uma Conta?<a href="#" class="login-link"> Entrar</a>  
     
-            </p>
+                </p>
+            </div>
+            </form>
         </div>
-        </form>
+        
+        <div class="form-box miss-password">
+            <h2>Esqueceu sua senha?</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Email</label>
+                </div>
+                
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Digite sua nova senha</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Digite a senha novamente</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Eu concordo com os termos de uso.</label>
+                    
+    
+                </div>
+        
+                <button type="submit" class="btn">Cadastre-se</button>
+                <div class="login-register">
+                <p>Já possui uma Conta?<a href="#" class="logins-link"> Entrar</a>  
+        
+                </p>
+            </div>
+            </form>
+        </div>
     </div>  
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 
 
