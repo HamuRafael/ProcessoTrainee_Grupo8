@@ -39,19 +39,12 @@ header {
 }
 
 .logo{
+    cursor: pointer;
     font-size: 2em;
     color: #ffffff;
     user-select: none;
 }
-.navigation a{
-    position: relative;
-    font-size: 1.1em;
-    color:  #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;    
 
-}
 
 .navigation .btnHome{
     width: 130px;
@@ -84,6 +77,11 @@ header {
     font-weight: 500;
     margin: 40px;
 }
+.navigation .btnSobre:hover{
+    background: #0000;
+    color: #162938;
+
+}
 .navigation .btnHome:hover{
     background: #0000;
     color: #162938;
@@ -109,6 +107,7 @@ header {
 
 }
 .wrapper {
+    
     position:relative;
     width: 400px;
     height: 440px;
@@ -117,18 +116,59 @@ header {
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     overflow: hidden; 
-    transform: scale(0); /* deixa o login apagado */
-    transition: transform, .5s ease, height .2s ease;
-   
-   
+    transform: scale(1); /* deixa o login apagado */
+}
+
+.wrapper.visible {
+  display: flex;
+}
+.home-content{
+    text-align: center;
+    color: #fff;
+    display: none;
+    visibility: hidden;
+    border-radius: 10px;
+    font-size: 1em;
+    
+
+}
+h1 {
+    font-size: 2em;
+    
+    
+}
+.home-content.visible {
+  display: flex;
+  visibility: visible;
+}
+
+
+.about{
+    text-align: center;
+    color: #fff;
+    display: none;
+    visibility: hidden;
+    transform: translate(50px);
+    border-radius: 10px;
+    font-size: 1em;
+    
+}
+.about.visible-about{
+    display: block;
+    visibility: visible;
+    
+
 }
 .wrapper.active-popup{ /* trabalha com o botao de login em cima */
-    transform: scale(1);
+    transform: scale(0);
+
 }
+
+
 .wrapper.active{
     height: 520px;
 
@@ -287,3 +327,4 @@ header {
 .login-register p a:hover{
     text-decoration: underline;
 }
+
