@@ -40,8 +40,15 @@ AboutBtn.addEventListener('click',()=>{
     wrapper.classList.add('active-popup');
     hometext.classList.remove('visible');
     
-    
 
     
 });
+function showpassword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 
