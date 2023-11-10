@@ -8,7 +8,7 @@
 body{
     background: url(https://github.com/HamuRafael/ProcessoTrainee_Grupo8/blob/main/night.png?raw=true);
     background-size: cover;
-    height: 540px;
+    height: 560px;
 }
 header{
     padding: 20px 100px;
@@ -59,30 +59,38 @@ h2{
 }
 .comments-area{
     width: 50vw;
-    height: 540px;
+    height: 560px;
     display: block;
-    background-color: white;
+    background-color: transparent;
     margin: auto;
     border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, .5);
     overflow-y: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
 .area-title{
     position: sticky;
     top: 0;
     padding: 10px;
-    border-bottom: 2px solid #252c70;
-    background-color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    background-image: linear-gradient(to bottom right, #82bc99, #0c5d77);
     user-select: none;
+    color: white;
 }
 .comments-area .comment{
     padding: 15px;
     margin: 15px;
     border-radius: 6px;
     background-image: linear-gradient(to bottom right, #82bc99, #0c5d77);
+    border: 2px solid rgba(255, 255, 255, .5);
+    color: white;
 }
 .comment-image{
     width: 45vw;
     height: auto;
+}
+.user{
+    color: white;
 }
 .user-img{
     border-radius: 50%;
