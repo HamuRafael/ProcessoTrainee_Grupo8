@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: url(https://github.com/HamuRafael/ProcessoTrainee_Grupo8/blob/main/night.png?raw=true);
+    background: url('night.png');
     background-size: cover;
     height: 560px;
 }
