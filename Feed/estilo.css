@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+
+/*Estilizando o corpo da página*/
+body{
+    background: url('night.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Estilizando a header da página*/
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/*Estilizando o título 'Foca.'*/
+header h1{
+    margin: 0;
+    color: white;
+}
+
+/*Estilizando botões de criar conta e login*/
+nav {
+    display: flex;
+    justify-content: center;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+}
+.botaocriarConta{
+    color: white;
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.botaoLogin{
+    color: white;
+    border: 2px solid white;
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*Estilizando o feed*/
+.feed {
+    color: #D1D1D1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feed__posts {
+    list-style: none;
+}
+
+.feed__post{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.2);
+}
+
+.imgUserPost {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #21B6A8;
+}
+
+.infoUserPost{
+    display: flex;
+    align-items: center;
+}
+
+strong {
+    color: #21B6A8;
+    font-size: 15px;
+}
+
+.nomeData{
+    margin-left: 10px ;
+}
+
+#post__texto{
+    width: 100%;
+    margin: 15px;
+    color: #727272;
+}
