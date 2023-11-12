@@ -91,10 +91,14 @@ h2{
 }
 .user{
     color: white;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 .user-img{
     border-radius: 50%;
     height: 3rem;
     width: 3rem;
     object-fit: cover;
+    margin-right: 15px;
 }
