@@ -8,61 +8,45 @@
 <body>
     <!--CABEÇALHO-->
     <header class="cabecalho">
-        <h1>Foca.</h1>
-        <nav>
-            <ul>
-                <li><a class="botaocriarConta" href="/ProcessoTrainee_Grupo8/Tela de login/login.html">Criar Conta</a></li>
-                <li><a class="botaoLogin" href="/ProcessoTrainee_Grupo8/Tela de login/login.html">Entrar</a></li>
-            </ul>
+        <h2>Foca.</h2>
+        <nav class="navigation">
+            <button class="register-button" onclick="window.location.href='login.html'">Criar conta</button>
+
+            <button class="login" onclick="window.location.href='login.html'">Login</button>
         </nav>
     </header>
 
     <!--CONTEÚDO PRINCIPAL DO FEED-->
-    <main class="feed">
-        <ul class="feed__posts">
-            <li class="feed__post">
-                <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
-                    <div class="nomeData">
-                        <strong>rutelvs</strong>
-                        <p>20/06/2004</p>
-                    </div>
-                </div>
+    <div class="feed">
+        <div class="feed-area-title">Publicações</div>
 
-                <p id="post__texto">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
-                </p>
-            </li>
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">
+                Joazin Gamer
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+        </div>
 
-            <li class="feed__post">
-                <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
-                    <div class="nomeData">
-                        <strong>rutelvs</strong>
-                        <p>20/06/2004</p>
-                    </div>
-                </div>
-
-                <p id="post__texto">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
-                </p>
-            </li>
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://th.bing.com/th/id/OIP._VI54eql2AzxwC1oz7YjPgHaFj?pid=ImgDet&rs=1" alt="profile-img">
+                Foca Plays
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+        </div>
 
             
-            <li class="feed__post">
-                <div class="infoUserPost">
-                    <div class="imgUserPost"></div>
-                    <div class="nomeData">
-                        <strong>rutelvs</strong>
-                        <p>20/06/2004</p>
-                    </div>
-                </div>
-
-                <p id="post__texto">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
-                </p>
-            </li>
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="profile-img">
+                User00001
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+        </div>
           
-        </ul>
-    </main>
+    </div>
 </body>
