@@ -100,6 +100,7 @@ h2{
     display: flex;
     align-items: center;
     user-select: none;
+    padding-bottom: 5px;
 }
 .user-img{
     border-radius: 50%;
