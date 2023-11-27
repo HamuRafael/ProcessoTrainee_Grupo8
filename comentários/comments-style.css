@@ -29,7 +29,7 @@ h2{
     border-radius: 6px;
     cursor: pointer;
     font: 5em;
-    margin: 40px;
+    margin: 10px 40px;
     color: white;
     font-weight: 500;
     border: 2px solid white;
@@ -47,7 +47,7 @@ h2{
     outline: none;
     cursor: pointer;
     font: 5em;
-    margin: 40px;
+    margin: 10px 40px;
     font-weight: 500;
     background-color: transparent;
     color: white;
@@ -66,7 +66,6 @@ h2{
     border-radius: 6px;
     border: 2px solid rgba(255, 255, 255, .5);
     overflow-y: auto;
-    overflow-x: hidden;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
 .area-title{
