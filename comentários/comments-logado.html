@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="comments-logado-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="comments-logado-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <title>Comentários</title>
 </head>
 
 <body>
-
+    <!--CABEÇALHO-->
     <header>
         <h2 class="logo">Foca.</h2>
 
@@ -22,11 +25,12 @@
         </nav>
     </header>
 
+    <!--ÁREA DOS COMENTÁRIOS-->
     <div class="comments-area">
 
         <div class="area-title">
             <div class='title'>Comentários</div>
-            <button class="make-comment">Comentar</button>
+            <button class="make-comment" onclick="openModal()">Comentar</button>
         </div>
 
         <div class="comment">
@@ -38,7 +42,7 @@
             </div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim beatae recusandae iusto modi amet earum, similique quae, nam quisquam rem, corporis nulla ea mollitia suscipit soluta quis tenetur eveniet?
             <div class="edit">
-                <i class="material-icons">edit</i>
+                <i id="editButton" class="material-icons" onclick="openModal()">edit</i>
             </div>
         </div>
 
@@ -61,6 +65,17 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim beatae recusandae iusto modi amet earum, similique quae, nam quisquam rem, corporis nulla ea mollitia suscipit soluta quis tenetur eveniet?
         </div>
 
+    </div>
+
+    <!--MODAL DE CRIAR COMENTÁRIO-->
+    <div id="overlay"></div>
+
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <textarea id="commentEditor"></textarea>
+            <button class="close" onclick="closeModal()">Cancelar</button>
+            <button class="create-comment" onclick="criarComment()">Comentar</button>
+        </div>
     </div>
 
 </body>
