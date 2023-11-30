@@ -38,3 +38,4 @@ function redirectToPage(destination){
 }
 
 document.getElementsByClassName('create-post').addEventListener('click',openModal);
+document.getElementById('edit').addEventListener('click',openModal);
