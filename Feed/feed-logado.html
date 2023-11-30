@@ -4,7 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo-logado.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="feed-logado-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <title>Feed</title>
 </head>
 
@@ -25,7 +27,7 @@
     <div class="feed">
         <div class="feed-area-title">
             <div class='title'>Publicações</div>
-            <button class="create-post">Criar post</button>
+            <button class="create-post" onclick="openModal()">Criar post</button>
         </div>
 
         <div class="feed__post">
@@ -67,5 +69,16 @@
             </div>
         </div>
           
+    </div>
+
+    <!--MODAL DE CRIAR POST-->
+    <div id="overlay"></div>
+
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <textarea id="postEditor"></textarea>
+            <button class="close" onclick="closeModal()">Cancelar</button>
+            <button class="publish" onclick="criarPost()">Publicar</button>
+        </div>
     </div>
 </body>
