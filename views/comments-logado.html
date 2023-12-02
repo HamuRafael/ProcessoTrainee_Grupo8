@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/comments-logado-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="js/utils/comments-logado-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <title>Comentários</title>
+</head>
+
+<body>
+    <!--CABEÇALHO-->
+    <header>
+        <h2 class="logo">Foca.</h2>
+
+        <nav class="navigation">
+            <div class="account">Joazin Gamer</div>
+            <img class="profile-pic" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-pic">
+            <a href="/login">
+                <i class="material-icons">logout</i>
+            </a>
+        </nav>
+    </header>
+
+    <!--ÁREA DOS COMENTÁRIOS-->
+    <div class="comments-area">
+
+        <div class="area-title">
+            <div class='title'>Comentários</div>
+            <button class="make-comment" onclick="openModal()">Comentar</button>
+        </div>
+
+        <div class="comment">
+            <div class="user">
+                <img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">
+                Joazin Gamer
+                <p class="data">23/11/2023</p>
+                <i class="material-icons">delete forever</i>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim beatae recusandae iusto modi amet earum, similique quae, nam quisquam rem, corporis nulla ea mollitia suscipit soluta quis tenetur eveniet?
+            <div class="edit">
+                <i id="editButton" class="material-icons" onclick="openModal()">edit</i>
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="user">
+                <img class="user-img" src="https://th.bing.com/th/id/OIP._VI54eql2AzxwC1oz7YjPgHaFj?pid=ImgDet&rs=1" alt="profile-img">
+                Foca Plays
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim beatae recusandae iusto modi amet earum, similique quae, nam quisquam rem, corporis nulla ea mollitia suscipit soluta quis tenetur eveniet?
+            <img class="comment-image" src="https://www.elagoradiario.com/wp-content/uploads/2019/12/Foca-elefante.jpg" alt="img">
+        </div>
+
+        <div class="comment">
+            <div class="user">
+                <img class="user-img" src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="profile-img">
+                User00001
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim beatae recusandae iusto modi amet earum, similique quae, nam quisquam rem, corporis nulla ea mollitia suscipit soluta quis tenetur eveniet?
+        </div>
+
+    </div>
+
+    <!--MODAL DE CRIAR COMENTÁRIO-->
+    <div id="overlay"></div>
+
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <textarea id="commentEditor"></textarea>
+            <button class="close" onclick="closeModal()">Cancelar</button>
+            <button class="create-comment" onclick="criarComment()">Comentar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
