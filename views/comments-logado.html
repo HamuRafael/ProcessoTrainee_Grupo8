@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/comments-logado-style.css">
+    <link rel="stylesheet" href="/css/comments-logado-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="js/utils/comments-logado-script.js"></script>
+    <script src="/js/utils/comments-logado-script.js"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <title>Comentários</title>
 </head>
 
@@ -72,9 +73,21 @@
 
     <div id="commentModal" class="modal">
         <div class="modal-content">
-            <textarea id="commentEditor"></textarea>
-            <button class="close" onclick="closeModal()">Cancelar</button>
-            <button class="create-comment" onclick="criarComment()">Comentar</button>
+            <form id="criar-comentario">
+                <textarea name="texto" id="commentEditor"></textarea>
+                <button class="close" type="button" onclick="closeModal()">Cancelar</button>
+                <button class="create-comment" type="submit">Comentar</button>
+                <script>
+                    $('#criar-comentario').submit(function(e) {
+                        e.preventDefault();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'comentarios',
+                            data: $(this).serialize(),
+                        });
+                    })
+                </script>
+            </form>
         </div>
     </div>
 

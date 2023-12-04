@@ -2,15 +2,15 @@ import Comentarios from "./comentarios.service.js";
 
 import { Router } from "express"
 
-const router = Router();
+const routerComentarios = Router();
 const comentarios = new Comentarios();
 
-router.get("/comentarios/:usuarioId", async (req, res) => {
+routerComentarios.get("/comentarios", async (req, res) => {
     const postsTotal = await comentarios.getComentarios();
     res.status(200).json(postsTotal)
 })
 
-router.post("/comentarios", async (req, res) => {
+routerComentarios.post("/comentarios", async (req, res) => {
     const {texto} = req.body;
     console.log(req.body)
     
@@ -23,11 +23,11 @@ router.post("/comentarios", async (req, res) => {
     }
 })
 
-router.delete("/comentarios/:id", async (req, res) => {
+routerComentarios.delete("/comentarios/:id", async (req, res) => {
     const { id } = req.params;
     
     try {
-        const postDeletado = await comentarios.deletarComentario(id);
+        const postDeletado = await comentarios.deletarComentario(+id);
         res.status(201).json({postDeletado});
     }
     catch (err) {
@@ -35,4 +35,4 @@ router.delete("/comentarios/:id", async (req, res) => {
     }
 })
 
-export default router
+export default routerComentarios

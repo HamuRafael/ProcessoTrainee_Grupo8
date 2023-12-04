@@ -14,16 +14,14 @@ model Usuario {
   id Int @id @default(autoincrement())
   email String @unique
   senha String
-  nome String
-  genero String
-  cargo String
-  posts Post[]
+  usuario String
+  //posts Post[]
 }
 
 model Post {
   id Int @id @default(autoincrement())
-  autor Usuario @relation(fields: [emailAutor], references: [email])
-  emailAutor String @unique
+  //autor Usuario @relation(fields: [emailAutor], references: [email])
+  //emailAutor String @unique
   texto String
   dataCriacao DateTime @default(now())
   comentarios Comentario[]

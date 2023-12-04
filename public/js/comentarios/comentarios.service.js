@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient();
 
 class Comentarios {
-    async criarComentario() {
+    async criarComentario(texto) {
         return await prisma.comentario.create({
             data: {
                 texto

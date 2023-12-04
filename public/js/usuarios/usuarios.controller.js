@@ -1,20 +1,21 @@
 import Usuarios from "./usuarios.service.js";
 import { Router } from "express"
 
-const router = Router();
+const routerUsuarios = Router();
 const usuarios = new Usuarios();
 
-router.get("/usuarios", async (req, res) => {
+routerUsuarios.get("/usuarios", async (req, res) => {
     const usuariosTotal = await usuarios.getUsuarios();
     res.status(200).json(usuariosTotal)
 })
 
-router.post("/usuarios", async (req, res) => {
-    const {email, senha, nome, genero, cargo} = req.body;
-    console.log(req.body)
+routerUsuarios.post("/usuarios", async (req, res) => {
+    const {email, senha, usuario} = req.body;
+    console.log(req.body);
     
     try {
-        const novoUsuario = await usuarios.criarUsuario(email, senha, nome, genero, cargo);
+        const novoUsuario = await usuarios.criarUsuario(email, senha, usuario);
+        console.log("popo");
         res.status(201).json({novoUsuario});
     }
     catch (err) {
@@ -22,11 +23,11 @@ router.post("/usuarios", async (req, res) => {
     }
 })
 
-router.delete("/usuarios/:email", async (req, res) => {
-    const { email } = req.params;
+routerUsuarios.delete("/usuarios/:id", async (req, res) => {
+    const { id } = req.params;
     
     try {
-        const usuarioDeletado = await usuarios.deletarUsuario(email);
+        const usuarioDeletado = await usuarios.deletarUsuario(+id);
         res.status(201).json({usuarioDeletado});
     }
     catch (err) {
@@ -34,4 +35,4 @@ router.delete("/usuarios/:email", async (req, res) => {
     }
 })
 
-export default router
+export default routerUsuarios

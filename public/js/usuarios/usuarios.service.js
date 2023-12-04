@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 class Usuarios {
     usuarios = {}
 
-    async criarUsuario(email, senha, nome, genero, cargo) {
+    async criarUsuario(email, senha, usuario) {
         return await prisma.usuario.create({
             data: {
-                email, senha, nome, genero, cargo
+                email, senha, usuario
             }
         }).catch(e => {
             if (e.code === "P2002")
@@ -17,10 +17,10 @@ class Usuarios {
         })
     }
 
-    async deletarUsuario(email) {
+    async deletarUsuario(id) {
         return await prisma.usuario.delete({
             where: {
-                email
+                id
             }
         }).catch(e => {
             if (e.code === "P2025") {

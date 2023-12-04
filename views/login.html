@@ -3,8 +3,9 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="css/login.css">
+    <link rel="stylesheet"  href="/css/login.css">
     <title>FOCA.</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     </head>
     <body>
     <footer id="footer"><h1>
@@ -63,34 +64,45 @@
         
         <div class="form-box register">
             <h2>Registre-se no Foca.</h2>
-            <form action="#">
-            <div class="input-box">
-                <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
-                <input type="text" required>
-                <label>Email</label>
-            </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-                <input type="text" required>
-                <label>Usuário</label>
-            </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" required>
-                <label>Senha</label>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox">Eu concordo com os termos de uso.</label>
-                
+            <form id="cadastro-conta">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+                    <input name="email" type="text" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+                    <input name="usuario" type="text" required>
+                    <label>Usuário</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input name="senha" type="password" required>
+                    <label>Senha</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Eu concordo com os termos de uso.</label>
+                    
 
-            </div>
-    
-            <button type="submit" class="btn">Cadastre-se</button>
-            <div class="login-register">
-            <p>Já possui uma Conta?<a href="#" class="login-link"> Entrar</a>  
-    
-                </p>
-            </div>
+                </div>
+        
+                <button type="submit" class="btn">Cadastre-se</button>
+                <div class="login-register">
+                <p>Já possui uma Conta?<a href="#" class="login-link"> Entrar</a>  
+        
+                    </p>
+                </div>
+                <script>
+                    $('#cadastro-conta').submit(function(e) {
+                        e.preventDefault();
+                        $.ajax({
+                                type: 'POST',
+                                url: 'usuarios',
+                                data: $(this).serialize(),
+                        });
+
+                    })
+                </script>
             </form>
         </div>
         

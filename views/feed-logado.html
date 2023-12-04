@@ -2,11 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/feed-logado.css">
+    <link rel="stylesheet" href="/css/feed-logado.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="js/utils/feed-logado-script.js"></script>
+    <script src="/js/utils/feed-logado-script.js"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
     <title>Feed</title>
 </head>
 
@@ -30,6 +32,23 @@
             <button class="create-post" onclick="openModal()">Criar post</button>
         </div>
 
+        <div id="feed-posts">
+            <script>  
+                const response = [];
+                fetch("/posts", {
+                    method: "GET"
+                })
+                .then((response) => response.json())
+                .then((json) => {
+                    for(var i = 0; i < json.length; i++) {
+                        var index = json.length - i - 1;
+                        var dataCriacao = json[index].dataCriacao.substr(0, 10).replaceAll("-", "/");
+                        $("#feed-posts").append('<div class="feed__post"><div class="infoUserPost"><img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">Joazin Gamer<p class="data">'+ dataCriacao +'</p><i class="material-icons">delete forever</i></div>' + json[index].texto + '<div class="comment-edit"><a style="color: #fff" href="comments-logado'+'"><i class="material-icons"">comment</i></a><i id="edit" class="material-icons" onclick="openModal()">edit</i></div></div>')
+                    };
+                });                
+            </script>
+        </div>
+
         <div class="feed__post">
             <div class="infoUserPost">
                 <img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">
@@ -39,7 +58,7 @@
             </div>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
             <div class="comment-edit">
-                <i class="material-icons" onclick="redirectToPage('comments-logado.html')">comment</i>
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
                 <i id="edit" class="material-icons" onclick="openModal()">edit</i>
             </div>
         </div>
@@ -52,7 +71,7 @@
             </div>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
             <div class="comment-edit">
-                <i class="material-icons" onclick="redirectToPage('comments-logado.html')">comment</i>
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
             </div>
         </div>
 
@@ -65,7 +84,7 @@
             </div>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
             <div class="comment-edit">
-                <i class="material-icons" onclick="redirectToPage('comments-logado.html')">comment</i>
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
             </div>
         </div>
           
@@ -76,9 +95,22 @@
 
     <div id="postModal" class="modal">
         <div class="modal-content">
-            <textarea id="postEditor"></textarea>
-            <button class="close" onclick="closeModal()">Cancelar</button>
-            <button class="publish" onclick="criarPost()">Publicar</button>
+            <form id="criar-post">
+                <textarea name="texto" id="postEditor"></textarea>
+                <button class="close" type="button" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="publish">Publicar</button>
+                <script>
+                    $('#criar-post').submit(function(e) {
+                        console.log($("#postEditor").serialize());
+                        $.ajax({
+                            type: 'POST',
+                            url: 'posts',
+                            data: $("#postEditor").serialize(),
+                        });
+                        e.preventDefault();
+                    })
+                </script>
+            </form>
         </div>
     </div>
 </body>

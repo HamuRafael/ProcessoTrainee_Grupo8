@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient();
 
 class Posts {
-    async criarPost() {
+    async criarPost(texto) {
         return await prisma.post.create({
             data: {
                 texto
@@ -28,7 +28,7 @@ class Posts {
     }
 
     async getPosts() {
-        return await prisma.usuario.findMany();
+        return await prisma.post.findMany();
     }
 
 }
