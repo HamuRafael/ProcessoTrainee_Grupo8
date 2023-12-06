@@ -33,4 +33,6 @@ model Comentario {
   postId Int
   DataCriacao DateTime @default(now())
   texto String
+  
+  
 }

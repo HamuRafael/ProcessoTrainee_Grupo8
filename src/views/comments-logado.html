@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/comments-logado-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="/js/comments-logado-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <title>Comentários</title>
+</head>
+
+<body>
+    <!--CABEÇALHO-->
+    <header>
+        <a href="/feed-logado" style="text-decoration: none;">
+            <h2 class="logo">Foca.</h2>
+        </a>
+
+        <nav class="navigation">
+            <div class="account">Joazin Gamer</div>
+            <img class="profile-pic" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-pic">
+            <a href="/login">
+                <i class="material-icons">logout</i>
+            </a>
+        </nav>
+    </header>
+
+    <!--ÁREA DOS COMENTÁRIOS-->
+    <div class="comments-area">
+
+        <div class="area-title">
+            <div class='title'>Comentários</div>
+            <button class="make-comment" onclick="openModal()">Comentar</button>
+        </div>
+
+        <div id="feed-comments">
+            <script>  
+                var idPost = window.location.href.split("/").slice(-1)[0];
+                fetch("/posts/"+idPost, {
+                    method: "GET"
+                })
+                .then((response) => response.json())
+                .then((json) => {
+                    var comentarios = json.comentarios;
+                    console.log(comentarios);
+                    for(var i = 0; i < comentarios.length; i++) {
+                        var index = comentarios.length - i - 1;
+                        var dataCriacao = comentarios[index].DataCriacao.substr(0, 10).replaceAll("-", "/");
+                        //$("#feed-posts").append('<div class="feed__post"><div class="infoUserPost"><img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">Joazin Gamer<p class="data">'+ dataCriacao +'</p><i class="material-icons">delete forever</i></div>' + comentarios[index].texto + '<div class="comment-edit"><a style="color: #fff" href="comments-logado/'+comentarios[index].id+'"><i class="material-icons"">comment</i></a><i id="edit" class="material-icons" onclick="openModal()">edit</i></div></div>')
+                        $("#feed-comments").append('<div class="comment"><div class="user"><img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">Joazin Gamer<p class="data">'+ dataCriacao + '</p><i class="material-icons">delete forever</i></div>'+ comentarios[index].texto +'<div class="edit"><i id="editButton" class="material-icons" onclick="openModal()">edit</i></div></div>')
+                        
+                    };
+                });                
+            </script>
+        </div>
+
+    </div>
+
+    <!--MODAL DE CRIAR COMENTÁRIO-->
+    <div id="overlay"></div>
+
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <form id="criar-comentario">
+                <textarea name="texto" id="commentEditor"></textarea>
+                <button class="close" type="button" onclick="closeModal()">Cancelar</button>
+                <button class="create-comment" id="publicar-comentario" type="submit">Comentar</button>
+                <script>
+                    $('#criar-comentario').submit(function(e) {
+                        e.preventDefault();
+                        var idPost = window.location.href.split("/").slice(-1)[0];
+                        $.ajax({
+                            type: 'post',
+                            url: '/comentarios',
+                            data: {
+                                texto: $("#commentEditor").val(),
+                                idPostPai: idPost
+                            },
+                        });
+                    })
+                </script>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

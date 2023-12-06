@@ -1,0 +1,119 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/feed-logado.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="/js/feed-logado-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+    <title>Feed</title>
+</head>
+
+<body>
+    <!--CABEÇALHO-->
+    <header class="cabecalho">
+        <a href="/feed-logado" style="text-decoration: none;">
+            <h2 class="logo">Foca.</h2>
+        </a>
+        <nav class="navigation">
+            <div class="account">Joazin Gamer</div>
+            <img class="profile-pic" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-pic">
+            <a href="/login">
+                <i class="material-icons">logout</i>
+            </a>
+        </nav>
+    </header>
+
+    <!--CONTEÚDO PRINCIPAL DO FEED-->
+    <div class="feed">
+        <div class="feed-area-title">
+            <div class='title'>Publicações</div>
+            <button class="create-post" onclick="openModal()">Criar post</button>
+        </div>
+
+        <div id="feed-posts">
+            <script>  
+                const response = [];
+                fetch("/posts", {
+                    method: "GET"
+                })
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    for(var i = 0; i < json.length; i++) {
+                        var index = json.length - i - 1;
+                        var dataCriacao = json[index].dataCriacao.substr(0, 10).replaceAll("-", "/");
+                        $("#feed-posts").append('<div class="feed__post"><div class="infoUserPost"><img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">Joazin Gamer<p class="data">'+ dataCriacao +'</p><i class="material-icons">delete forever</i></div>' + json[index].texto + '<div class="comment-edit"><a style="color: #fff" href="comments-logado/'+json[index].id+'"><i class="material-icons"">comment</i></a><i id="edit" class="material-icons" onclick="openModal()">edit</i></div></div>')
+                    };
+                });                
+            </script>
+        </div>
+
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://th.bing.com/th/id/R.bea7622fd9455ace918c472147706ff3?rik=wBqmVUDgnp5Rtw&pid=ImgRaw&r=0" alt="profile-img">
+                Joazin Gamer
+                <p class="data">23/11/2023</p>
+                <i class="material-icons">delete forever</i>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+            <div class="comment-edit">
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
+                <i id="edit" class="material-icons" onclick="openModal()">edit</i>
+            </div>
+        </div>
+
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://th.bing.com/th/id/OIP._VI54eql2AzxwC1oz7YjPgHaFj?pid=ImgDet&rs=1" alt="profile-img">
+                Foca Plays
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+            <div class="comment-edit">
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
+            </div>
+        </div>
+
+            
+        <div class="feed__post">
+            <div class="infoUserPost">
+                <img class="user-img" src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="profile-img">
+                User00001
+                <p class="data">23/11/2023</p>
+            </div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi inventore omnis perspiciatis, qui repudiandae optio odit corporis incidunt rerum temporibus rem consequuntur maxime vero numquam autem adipisci quo quia aliquid.
+            <div class="comment-edit">
+                <i class="material-icons" onclick="redirectToPage('/comments-logado')">comment</i>
+            </div>
+        </div>
+          
+    </div>
+
+    <!--MODAL DE CRIAR POST-->
+    <div id="overlay"></div>
+
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <form id="criar-post">
+                <textarea name="texto" id="postEditor"></textarea>
+                <button class="close" type="button" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="publish">Publicar</button>
+                <script>
+                    $('#criar-post').submit(function(e) {
+                        console.log($("#postEditor").serialize());
+                        $.ajax({
+                            type: 'POST',
+                            url: 'posts',
+                            data: $("#postEditor").serialize(),
+                        });
+                        e.preventDefault();
+                    })
+                </script>
+            </form>
+        </div>
+    </div>
+</body>
