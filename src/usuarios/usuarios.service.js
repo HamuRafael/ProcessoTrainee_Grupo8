@@ -33,10 +33,10 @@ class Usuarios {
         return await prisma.usuario.findMany();
     }
 
-    async findByEmail(email) {
+    async findById(id) {
         return await prisma.usuario.findUnique({
             where: {
-                email
+                id
             }
         })
     }

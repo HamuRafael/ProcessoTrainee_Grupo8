@@ -34,7 +34,7 @@ app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, 'views/', 'login.html'))
 })
 
-app.get("/feed/:idPerfil?", (req, res) => {
+app.get("/feed", (req, res) => {
     res.sendFile(path.join(__dirname, 'views/', 'feed.html'))
 })
 
@@ -47,9 +47,14 @@ app.get("/comments-logado/:idPost", (req, res) => {
     
 })
 
-app.get("/feed-logado/:idPerfil?", (req, res) => {
+app.get("/feed-logado", (req, res) => {
     res.sendFile(path.join(__dirname, 'views/', 'feed-logado.html'))
 })
+
+app.get("/perfil/:idPerfil", (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/', 'perfil.html'))
+})
+
 
 app.get("/perfil-deslogado", (req, res) => {
     res.sendFile(path.join(__dirname, 'views/', 'perfil-deslogado.html'))

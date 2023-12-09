@@ -36,15 +36,15 @@
         
         <div class="form-box login">
                 <h2>Entre no Foca.</h2>
-                <form action="destination.html" method="POST">
+                <form id="login-conta">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
-                    <input type="email" required>
+                    <input name="email" type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required id="password">
+                    <input name="senha" type="password" required id="password">
                     <label>Senha</label>
                 </div>
                 <div class="remember-forgot">
@@ -54,13 +54,28 @@
 
                 </div>
                 
-                <button id="myButton" class="btn" >Login</button>
+                <button id="myButton" type="submit" class="btn" >Login</button>
 
                 <div class="login-register">
                     <p>Não tem uma Conta?<a href="#" class="register-link"> Cadastre-se</a>  
         
                     </p>
                 </div>
+                <script>
+                    $('#login-conta').submit(function(e) {
+                        e.preventDefault();
+                        $.ajax({
+                            type: 'POST',
+                            url: '/sign-in',
+                            data: $(this).serialize(),
+                            success: (data, textStatus, jqXHR) => {
+                                if (typeof data.redirect == 'string') window.location = data.redirect + "/" + data.id
+                            }
+                                
+                        });
+                        
+                    })
+                </script>
             </form>
         </div>
         
@@ -99,7 +114,7 @@
                         e.preventDefault();
                         $.ajax({
                             type: 'POST',
-                            url: '/usuarios',
+                            url: '/sign-up',
                             
                             data: $(this).serialize(),
                         });
@@ -143,7 +158,7 @@
             </form>
         </div>
     </div>  
-    <script src="js/utils/login.js"></script>
+    <script src="/js/login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
